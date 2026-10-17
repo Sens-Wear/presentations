@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SensWear talks and workshops on wearable sensing, open hardware, and research.">
+  <meta name="theme-color" content="#080e18">
+  <title>Presentations · SensWear</title>
+  <link rel="icon" href="NO1/assets/senswear-logo.svg" type="image/svg+xml">
+  <style>
+    @font-face{font-family:Manrope;src:url('NO1/assets/Manrope.ttf') format('truetype');font-weight:200 800;font-display:swap}
+    :root{color-scheme:dark;--bg:#080e18;--panel:#101a29;--text:#f2f6fa;--muted:#a8b7c9;--accent:#67e4dc;--line:#26384b}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 95% 0,rgba(103,228,220,.09),transparent 45%),var(--bg);color:var(--text);font:16px/1.65 Manrope,system-ui,sans-serif;min-height:100vh}a{color:inherit}a:focus-visible{outline:3px solid var(--accent);outline-offset:6px;border-radius:5px}.wrap{width:min(1120px,calc(100% - 48px));margin:auto}header{padding:34px 0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{font-size:24px;font-weight:800;letter-spacing:-1px;text-decoration:none}.brand span{color:var(--accent)}.website{font-size:13px;color:var(--muted);text-decoration:none}.website:hover{color:var(--text)}main{padding:84px 0 100px}.eyebrow{margin:0 0 14px;color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.17em;text-transform:uppercase}h1{max-width:780px;margin:0;font-size:clamp(42px,7vw,76px);line-height:1.08;letter-spacing:-.055em;font-weight:750}.intro{max-width:640px;margin:26px 0 46px;color:var(--muted);font-size:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.card{position:relative;display:flex;flex-direction:column;min-height:300px;padding:30px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(140deg,rgba(25,43,62,.8),var(--panel));text-decoration:none;transition:border-color .2s,transform .2s}.card:hover{transform:translateY(-4px);border-color:var(--accent)}.label{display:flex;justify-content:space-between;gap:16px;color:var(--muted);font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.code{color:var(--accent)}h2{margin:27px 0 12px;font-size:28px;line-height:1.2;letter-spacing:-.035em}.card p{margin:0 0 30px;color:var(--muted);font-size:15px}.open{margin-top:auto;display:flex;justify-content:space-between;align-items:center;color:var(--accent);font-size:14px;font-weight:750}.arrow{font-size:23px;line-height:1}footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:25px 0 34px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}footer a{text-decoration:none}footer a:hover{color:var(--text)}@media(max-width:680px){.wrap{width:calc(100% - 36px)}header{padding:24px 0}main{padding:54px 0 64px}.intro{font-size:16px}.grid{grid-template-columns:1fr}.card{min-height:280px;padding:26px}h2{font-size:27px}.website{font-size:12px}}@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./" aria-label="SensWear presentations home">Sens<span>Wear</span></a>
+      <a class="website" href="https://sens-wear.com/">sens-wear.com ↗</a>
+    </header>
+    <main>
+      <p class="eyebrow">Talks &amp; workshops</p>
+      <h1>Ideas you can<br>build on.</h1>
+      <p class="intro">Explore wearable sensing, open hardware, and the experiments they make possible. Choose a presentation to begin.</p>
+      <div class="grid">
+        <a class="card" href="./NO1/">
+          <div class="label"><span class="code">NO1</span><span>Guest talk · 10 slides</span></div>
+          <h2>Wearables in sync</h2>
+          <p>What if your wearables shared a clock? Explore multi-device sensing, pulse timing, and a concrete research experiment.</p>
+          <span class="open">Open presentation <span class="arrow" aria-hidden="true">↗</span></span>
+        </a>
+        <a class="card" href="./WS1/">
+          <div class="label"><span class="code">WS1</span><span>Workshop · 29 slides</span></div>
+          <h2>From raw signals<br>to wearable AI</h2>
+          <p>Meet the SensWear platform, explore the hardware, and get hands-on with raw PPG and temperature recordings.</p>
+          <span class="open">Open presentation <span class="arrow" aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </main>
+    <footer>
+      <span>SensWear · Open tools for wearable research</span>
+      <a href="https://github.com/Sens-Wear/presentations">View repository ↗</a>
+    </footer>
+  </div>
+</body>
+</html>

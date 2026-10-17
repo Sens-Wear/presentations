@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A 10-minute SensWear talk on synchronized on-body wearable networks, pulse transit time and new health research possibilities.">
+  <title>Wearables in sync · SensWear</title>
+  <link rel="icon" href="assets/senswear-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="vendor/reset.css">
+  <link rel="stylesheet" href="vendor/reveal.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<section id="hello" class="cover" data-timing="35" data-title="What if your wearables shared a clock?">
+  <div class="hero-image" role="img" aria-label="Concept illustration of a person with connected ring, watch and earbud"></div>
+  <div class="hero-shade"></div>
+  <div class="cover-copy">
+    <p class="eyebrow">Thinkin’ Rocks · Nerd Out III</p>
+    <h1>What if your<br>wearables<br><em>shared a clock?</em></h1>
+    <p class="cover-sub">The health insights between the sensors</p>
+  </div>
+  <div class="signature"><strong>Dariush Salami</strong><span>SensWear · 20 October 2026</span></div>
+  <p class="image-label">Concept illustration</p>
+  <aside class="notes">
+    <p><strong>0:00–0:35 · Opening</strong></p>
+    <p>Quick show of hands: who is wearing a watch, a ring, or earbuds right now? Many of us already have a small sensor network on our bodies. But those devices mostly tell separate stories. I’m Dariush from SensWear. I want to explore what happens when they can agree on precisely when something happened. The interesting new information lives in the relationship between the signals. Over the next ten minutes, we’ll make that idea concrete with the pulse moving through your arteries.</p>
+    <p>Event: https://luma.com/tr-nerdout-III . Hero is an AI-generated concept illustration, not a medical anatomical model or a SensWear product photo.</p>
+  </aside>
+</section>
+
+<section id="network" class="network-slide" data-timing="50" data-title="Three devices. One body.">
+  <div class="hero-image" aria-hidden="true"></div><div class="network-shade"></div>
+  <div class="network-copy">
+    <h2>Three devices.<br><em>One body.</em></h2>
+    <dl class="sites-list">
+      <div><dt>Finger</dt><dd>Pulse waveform</dd></div>
+      <div><dt>Wrist</dt><dd>Pulse + movement</dd></div>
+      <div><dt>Ear</dt><dd>Movement + possible<br>cardiorespiratory sensing</dd></div>
+    </dl>
+    <p class="thesis">Their relationship needs <strong>shared time.</strong></p>
+  </div>
+  <div class="node-label ear">EAR</div><div class="node-label wrist">WRIST</div><div class="node-label finger">FINGER</div>
+  <p class="footnote narrow">Future network concept. Sensor capabilities and raw-data access vary by device. Ear physiology here refers to research hearables.</p>
+  <aside class="notes">
+    <p><strong>0:35–1:25 · The network</strong></p>
+    <p>Imagine a ring that sees a pulse at the finger, a watch that sees the pulse and motion at the wrist, and an ear device that adds another location. Research hearables have demonstrated cardiac and respiratory sensing. That does not mean every AirPod or earbud exposes these signals. This is a future network of compatible sensors. If each device gives me an average heart rate, I can compare summaries. If they give me raw waveforms on the same clock, I can study how those signals relate in time. The cyan links represent data links, not arteries.</p>
+    <p>Source: Goverdovsky et al., Hearables: Multimodal physiological in-ear sensing (2017), https://www.nature.com/articles/s41598-017-06925-2 . Consumer-device compatibility is hypothetical.</p>
+  </aside>
+</section>
+
+<section id="pulse" data-timing="65" data-title="One heartbeat. Two arrival times.">
+  <p class="eyebrow">Pulse transit time</p>
+  <h2>One heartbeat.<br><em>Two arrival times.</em></h2>
+  <div class="pulse-layout">
+    <div><svg class="wave-chart" id="pulse-chart" viewBox="0 0 1000 430" role="img" aria-label="Illustrative wrist and finger pulse waveforms with a 40 millisecond delay"></svg></div>
+    <div class="equation-block">
+      <span class="micro">Pulse-wave velocity</span>
+      <div class="fraction"><span>arterial path length</span><span>transit time</span></div>
+      <p class="equation"><span>0.20 m</span> / <span>0.040 s</span></p>
+      <div class="big-number">5.0<span>m/s</span></div>
+    </div>
+  </div>
+  <p class="takeaway">A pressure wave travels along the artery.</p>
+  <p class="footnote">Illustrative signals and assumed path. Compare corresponding pulse upstrokes. This is wave speed, not blood-cell speed.</p>
+  <aside class="notes">
+    <p><strong>1:25–2:30 · The physics</strong></p>
+    <p>Every heartbeat launches a pressure wave. Optical sensors see the resulting blood-volume pulse; that technique is photoplethysmography, or PPG. At two sites on the same arterial route, the pulse arrives at different times. The difference is pulse transit time, or PTT. Divide the arterial path length by that time and you get pulse-wave velocity. Here is an illustrative segment: twenty centimetres and forty milliseconds gives five metres per second. These are teaching numbers, not measured SensWear data or a healthy-range threshold. We compare the start of the pulse upstroke, because peaks can shift as waveforms change. This is pressure-wave speed, not blood-cell speed.</p>
+    <p>Sources: Mehrgardt et al., Pulse Transit Time PPG Dataset, https://physionet.org/content/pulse-transit-time-ppg/1.1.0/ . Waveforms in this talk are synthetic. Ring and wrist would require a suitable arterial route and path estimate.</p>
+  </aside>
+</section>
+
+<section id="clock" class="interactive-slide" data-timing="65" data-title="10 milliseconds can change the answer">
+  <p class="eyebrow">Try it · clock error</p>
+  <h2><em>10 milliseconds</em><br>can change the answer</h2>
+  <div class="demo-layout">
+    <div>
+      <svg id="clock-chart" class="wave-chart" viewBox="0 0 1000 430" role="img" aria-label="Interactive pulse waveform chart showing the effect of an erroneous finger clock"></svg>
+      <div class="range-row"><label for="clock-offset">Finger clock offset</label><input id="clock-offset" type="range" min="-20" max="20" step="1" value="10"><output id="offset-label" for="clock-offset">+10 ms</output></div>
+      <button id="sync-button" class="action">Synchronize clocks</button><button id="offset-reset" class="text-action">Reset error</button>
+    </div>
+    <div class="demo-result" aria-live="polite">
+      <span class="micro">Apparent transit time</span><div class="medium-number" id="observed-delay">50<span>ms</span></div>
+      <span class="micro">Estimated PWV</span><div class="big-number" id="observed-speed">4.0<span>m/s</span></div>
+      <p id="speed-error" class="error-message">20% below the true value</p>
+      <p class="reference-value">True scenario: 40 ms · 5.0 m/s</p>
+    </div>
+  </div>
+  <p class="footnote">Synthetic example. The body stays the same. Only the clock changes. Assumed arterial path: 0.20 m.</p>
+  <aside class="notes">
+    <p><strong>2:30–3:35 · Demo 1</strong></p>
+    <p>Let’s break the clock without changing the body. The finger clock is ten milliseconds ahead. The software sees fifty milliseconds of travel time and reports four metres per second, twenty percent too low. [Move to minus ten.] Now it reports six point seven, about thirty-three percent too high. Nothing in the artery changed. [Click Synchronize clocks.] We recover the original forty milliseconds and five metres per second. This button models perfect clock correction; real hardware must measure its residual timing error. Bluetooth connectivity alone cannot tell us when the sensor actually took a sample.</p>
+    <p>Demo arithmetic: v=0.20/((40+offset)/1000). The finger waveform shifts in reported time. Background outline shows the true waveform. The model excludes sample noise, morphology, path-length and filtering errors so the clock effect is isolated.</p>
+  </aside>
+</section>
+
+<section id="stiffness" class="interactive-slide" data-timing="60" data-title="Stiffer arteries carry a faster wave">
+  <p class="eyebrow">Arterial stiffness</p>
+  <h2>Stiffer arteries carry<br><em>a faster wave</em></h2>
+  <div class="stiffness-layout">
+    <div class="propagation-demo">
+      <svg id="stiffness-chart" viewBox="0 0 1000 380" role="img" aria-label="Animated conceptual comparison of wave transit along a reference artery and an artery with adjustable stiffness"></svg>
+      <div class="range-row stiffness-control"><label for="stiffness-input">Relative wall stiffness</label><input id="stiffness-input" type="range" min="1" max="4" step="0.05" value="2.25"><output id="stiffness-label">2.25×</output></div>
+      <div class="demo-actions"><button id="replay-wave" class="action">Replay wave</button><button id="pause-wave" class="text-action" aria-pressed="false">Pause motion</button></div>
+    </div>
+    <div class="stiffness-copy">
+      <p class="micro">Same path · earlier arrival</p>
+      <div class="big-number coral" id="stiffness-speed">7.5<span>m/s</span></div>
+      <p id="stiffness-time" class="stiffness-time">26.7 ms transit</p>
+      <p>PWV can reveal<br><strong>stiffness-related changes.</strong></p>
+    </div>
+  </div>
+  <p class="footnote">Idealized tube model: PWV ∝ √stiffness, with pressure and geometry fixed. Real arteries also depend on pressure, tone and geometry.</p>
+  <aside class="notes">
+    <p><strong>3:35–4:35 · Demo 2</strong></p>
+    <p>A more compliant vessel expands as the wave passes. A stiffer vessel carries the disturbance faster. [Increase relative stiffness and replay.] The travelling glow represents a pressure disturbance, not flowing blood. We slow the motion down so you can see it. In this simple tube model, quadrupling effective wall stiffness doubles the wave speed. Real biology is more complicated. Pressure, muscle tone, wall thickness and diameter all matter. So we can talk about stiffness-related trends, but PWV alone does not directly measure intrinsic arterial elasticity. And a wrist–finger segment does not measure central aortic stiffness.</p>
+    <p>Model: v=5√k m/s and PTT=200/v ms, with fixed illustrative path 0.20 m. k is an assumed effective wall stiffness ratio. The approximation follows the Moens–Korteweg scaling under fixed geometry/density. Sources: https://www.nature.com/articles/hr2015109 and https://www.ahajournals.org/doi/pdf/10.1161/HYPERTENSIONAHA.109.143867 .</p>
+  </aside>
+</section>
+
+<section id="insights" data-timing="70" data-title="New insights live in the relationships">
+  <p class="eyebrow">Research possibilities</p>
+  <h2>New insights live<br><em>in the relationships</em></h2>
+  <div class="insight-grid">
+    <article><span class="insight-index">01</span><h3>Vascular dynamics</h3><p>How does pulse transit change<br>within a person over time?</p><span class="signal-pair">Pulse at wrist + pulse at finger</span></article>
+    <article><span class="insight-index">02</span><h3>Regional circulation</h3><p>Do timing and waveforms differ<br>across locations or sides?</p><span class="signal-pair">Multiple optical pulse sites</span></article>
+    <article><span class="insight-index">03</span><h3>Measurement confidence</h3><p>Is that change physiological,<br>or is the wrist moving?</p><span class="signal-pair">Pulse + motion + another pulse site</span></article>
+    <article><span class="insight-index">04</span><h3>Recovery in context</h3><p>How do pulse dynamics relate<br>to breathing and activity?</p><span class="signal-pair">Cardiac timing + respiration + movement</span></article>
+  </div>
+  <p class="footnote">Research questions, not validated diagnoses. Each use case needs suitable sensors, timing precision and independent validation.</p>
+  <aside class="notes">
+    <p><strong>4:35–5:45 · The health opportunities</strong></p>
+    <p>Pulse velocity is one example. A network could track vascular dynamics under comparable conditions. Multiple sites also let us ask whether circulation changes are regional or more widespread. A pilot study found differences in bilateral pulse variability in people with peripheral arterial disease; it did not validate a ring-and-watch diagnostic. Another benefit is confidence: a noisy wrist signal coinciding with movement may be less trustworthy than a clean signal elsewhere. Finally, shared time lets us relate pulse dynamics to breathing, posture and activity. Not every question needs millisecond precision. Pulse transit across a short segment does; long-term temperature trends usually do not.</p>
+    <p>Sources: multi-site perfusion pilot, https://pmc.ncbi.nlm.nih.gov/articles/PMC6165367/ ; synchronized PPG/ECG/inertial dataset, https://physionet.org/content/pulse-transit-time-ppg/1.1.0/ ; research hearable, https://www.nature.com/articles/s41598-017-06925-2 . Recovery framing is a research proposal, not a proven outcome.</p>
+  </aside>
+</section>
+
+<section id="engineering" data-timing="60" data-title="A shared clock starts at the sensor">
+  <p class="eyebrow">The engineering challenge</p>
+  <h2>A shared clock starts<br><em>at the sensor</em></h2>
+  <div class="engineering-layout">
+    <div class="time-diagram">
+      <svg id="timing-chart" viewBox="0 0 950 390" role="img" aria-label="Acquisition timestamps from two sensors map to shared time before data packets arrive at a phone"></svg>
+      <p class="timing-equation">estimated shared time = <span>rate</span> × local time + <span>offset</span></p>
+    </div>
+    <ol class="requirements">
+      <li><strong>Timestamp acquisition</strong><span>Phone arrival includes radio and buffer delays.</span></li>
+      <li><strong>Correct offset and drift</strong><span>Clocks keep drifting after the first sync.</span></li>
+      <li><strong>Measure the whole error</strong><span>Sampling, filters, placement and signal quality.</span></li>
+    </ol>
+  </div>
+  <p class="footnote">100 Hz gives 10 ms between samples. Interpolation can refine timing, but cannot recover information the measurement lost.</p>
+  <aside class="notes">
+    <p><strong>5:45–6:45 · What synchronization means</strong></p>
+    <p>The timestamp should describe acquisition at the sensor. A packet can sit in a buffer, travel over Bluetooth, and wait in a phone queue. Its arrival time includes all of those delays. We need a mapping from each local clock to a common timebase, correcting both offset and clock rate. We must check it again as the clocks drift. Even a perfect clock does not solve sampling or filtering. At a hundred hertz, samples are ten milliseconds apart. Interpolation can help estimate an upstroke, but it cannot manufacture missing bandwidth or undo poor signal quality. The useful engineering metric is measured end-to-end timing uncertainty.</p>
+    <p>Sources: Mehrgardt et al., https://physionet.org/content/pulse-transit-time-ppg/1.1.0/ ; Maróti et al., FTSP (2004), https://www.isis.vanderbilt.edu/sites/isis.vanderbilt.edu/files/bibcite_files/Maroti_M_2_12_2004_The_Floodi_0.pdf ; Landra et al., SharkTooth (2025), https://iris.polito.it/handle/11583/3002564 . The estimated affine mapping applies over a calibration window. Physical synchronization implementation is not specified or claimed as delivered by SensWear.</p>
+  </aside>
+</section>
+
+<section id="senswear" class="light-slide" data-background-color="#f4f1e9" data-timing="70" data-title="SensWear makes the experiment buildable">
+  <div class="brand-line"><img src="assets/senswear-logo.svg" alt="SensWear logo"><span>SensWear</span></div>
+  <h2>A platform for<br><em>the experiment</em></h2>
+  <img class="exploded-product" src="assets/exploded-ring.jpg" alt="Exploded view of a SensWear ring showing enclosure, flexible main board, liner and interchangeable modules">
+  <div class="platform-features"><div><strong>Modular sensors</strong><span>PPG, motion and temperature</span></div><div><strong>Raw-data access</strong><span>Inspect signals and timestamps</span></div><div><strong>Open hardware + firmware</strong><span>Develop the timing protocol</span></div></div>
+  <div class="research-boundary"><strong>The next experiment</strong><span>Build and validate precise synchronization between devices.</span></div>
+  <aside class="notes">
+    <p><strong>6:45–7:55 · SensWear</strong></p>
+    <p>This is why we are building SensWear. The same flexible main board can work with different sensor modules and wearable forms. You can access raw signals and timestamps, inspect the hardware, and change the firmware. That gives researchers the ingredients to build a network and test the assumptions themselves. Precise multi-device synchronization is the experiment I am proposing here, not a performance claim about the current platform. The public clock-setting interface uses whole seconds; it is not proof of millisecond alignment. To make pulse transit measurements credible, we would have to implement and measure the full acquisition-time alignment.</p>
+    <p>Sources: https://sens-wear.com/ ; https://github.com/Sens-Wear/hardware ; https://github.com/Sens-Wear/firmware ; https://github.com/Sens-Wear/python-sdk . Product render from the user's SensWear workshop assets. Public sources checked 16 October 2026.</p>
+  </aside>
+</section>
+
+<section id="experiment" data-timing="65" data-title="The first experiment: two sites, one pulse">
+  <p class="eyebrow">A research invitation</p>
+  <h2>The first experiment:<br><em>two sites, one pulse</em></h2>
+  <div class="experiment-layout">
+    <div class="experiment-steps">
+      <div><span>01</span><p><strong>Measure the clocks</strong><small>Apply a common reference event.<br>Quantify residual error and drift.</small></p></div>
+      <div><span>02</span><p><strong>Record wrist + finger PPG</strong><small>Verify sample times, filtering,<br>placement and arterial path.</small></p></div>
+      <div><span>03</span><p><strong>Compare with a reference</strong><small>Repeat under controlled conditions.<br>Report uncertainty and failed readings.</small></p></div>
+    </div>
+    <div class="experiment-aside">
+      <p class="micro">The question</p><blockquote>Can we see a<br>physiological change<br><em>larger than our<br>timing error?</em></blockquote>
+      <p class="experiment-limit">PWV can support stiffness research.<br>Blood-pressure estimation needs its own<br>calibration and validation.</p>
+    </div>
+  </div>
+  <aside class="notes">
+    <p><strong>7:55–9:00 · A concrete next step</strong></p>
+    <p>I would start with two compatible PPG nodes, at the wrist and finger, on the same side. First test timing against a common input and reference clock. Measure the residual offset, jitter and drift over the intended recording duration. Then verify the real sampling and processing delays, the signal quality and the arterial path estimate. Finally compare the derived transit measurements with a suitable reference under controlled conditions and report the failures. The question is whether a physiological change is larger than our uncertainty. One further distinction: ECG to finger timing includes the heart’s pre-ejection period, so it is pulse arrival time, not pure vascular transit time.</p>
+    <p>Source for PAT=PEP+PTT: Zhang et al., Journal of Applied Physiology (2011), https://journals.physiology.org/doi/full/10.1152/japplphysiol.00980.2011 . This is a proposed research protocol, not a clinical validation plan or a diagnostic claim. Ear and finger lie on separate branches, so ear-to-finger delay is not a direct arterial segment transit.</p>
+  </aside>
+</section>
+
+<section id="join" class="closing" data-timing="60" data-title="What would you measure together?">
+  <img src="assets/hero-kit.jpg" class="closing-photo" alt="Real SensWear smart ring, flexible main board and USB debug board">
+  <div class="closing-shade"></div>
+  <div class="closing-copy"><p class="eyebrow">SensWear</p><h2>What would<br>you measure<br><em>together?</em></h2><p>Let’s build the experiment.</p></div>
+  <a class="campaign-qr" href="https://www.crowdsupply.com/sensera-technologies/senswear-wearable-dev-kit" target="_blank" rel="noopener"><img src="assets/qr-crowd-supply.png" alt="QR code linking to the SensWear Wearable Dev Kit campaign on Crowd Supply"><strong>Follow SensWear<br>on Crowd Supply</strong><span>Coming Soon · checked 16 Oct 2026</span></a>
+  <div class="closing-links"><a href="https://sens-wear.com/" target="_blank" rel="noopener">sens-wear.com</a><a href="sources.html" target="_blank" rel="noopener">Sources &amp; technical notes ↗</a></div>
+  <aside class="notes">
+    <p><strong>9:00–10:00 · Close and invitation</strong></p>
+    <p>The idea I want to leave you with is that our bodies generate connected events, while our devices often report disconnected summaries. Shared acquisition time gives us a way to measure the connections. We explored the pulse travelling between two sites, what a tiny clock error does to the result, and how a network could add context and confidence. SensWear is an open place to build and test those experiments. If that sounds interesting, scan this code and follow the Crowd Supply campaign. It is currently Coming Soon. And I would love to hear your answer: what would you measure together? [Leave the QR visible for the discussion.]</p>
+    <p>Campaign and QR destination: https://www.crowdsupply.com/sensera-technologies/senswear-wearable-dev-kit . Status checked 16 October 2026. Product photo belongs to the user's SensWear materials. No purchase or shipping date is implied.</p>
+  </aside>
+</section>
+
+</div></div>
+<div class="deck-footer"><span id="footer-brand">SensWear</span><span id="slide-counter">01 / 10</span></div>
+<button class="help-toggle" id="help-toggle" aria-label="Show presentation keyboard shortcuts" title="Keyboard shortcuts">?</button>
+<dialog id="help-dialog"><h2>Presentation controls</h2><p><kbd>→</kbd> / <kbd>Space</kbd> Next slide</p><p><kbd>←</kbd> Previous slide</p><p><kbd>F</kbd> Full screen</p><p><kbd>S</kbd> Speaker notes and timer</p><p><kbd>Esc</kbd> Overview</p><p><kbd>B</kbd> Pause / black screen</p><p>Use sliders with a mouse or focus them and press arrow keys. The demos use synthetic data.</p><button id="close-help">Close</button></dialog>
+<script src="vendor/reveal.js"></script><script src="vendor/notes.js"></script><script src="deck.js"></script>
+</body></html>

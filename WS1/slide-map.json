@@ -1,0 +1,176 @@
+[
+  {
+    "slide": 1,
+    "id": "welcome",
+    "title": "welcome",
+    "chapter": "why"
+  },
+  {
+    "slide": 2,
+    "id": "cost",
+    "title": "Before the first signal, there’s a lot to build.",
+    "chapter": "why"
+  },
+  {
+    "slide": 3,
+    "id": "reuse",
+    "title": "Skip the rebuild. Start with SensWear.",
+    "chapter": "why"
+  },
+  {
+    "slide": 4,
+    "id": "platform",
+    "title": "Here’s what you start with",
+    "chapter": "platform"
+  },
+  {
+    "slide": 5,
+    "id": "embodiment",
+    "title": "Start with a ring. Change the shape.",
+    "chapter": "platform"
+  },
+  {
+    "slide": 6,
+    "id": "modules",
+    "title": "Choose the signals. Keep the platform.",
+    "chapter": "platform"
+  },
+  {
+    "slide": 7,
+    "id": "layers",
+    "title": "Use the layer you need. Change the rest.",
+    "chapter": "platform"
+  },
+  {
+    "slide": 8,
+    "id": "team",
+    "title": "Who’s building it",
+    "chapter": "platform"
+  },
+  {
+    "slide": 9,
+    "id": "ai-revolution",
+    "title": "AI took off when the foundations came together.",
+    "chapter": "bet"
+  },
+  {
+    "slide": 10,
+    "id": "vision",
+    "title": "Here’s the bet",
+    "chapter": "bet"
+  },
+  {
+    "slide": 11,
+    "id": "ai-design",
+    "title": "“Design a wearable around these signals.”",
+    "chapter": "bet"
+  },
+  {
+    "slide": 12,
+    "id": "building-blocks",
+    "title": "What does the AI build on?",
+    "chapter": "bet"
+  },
+  {
+    "slide": 13,
+    "id": "adoption",
+    "title": "We want SensWear to be the starting point",
+    "chapter": "bet"
+  },
+  {
+    "slide": 14,
+    "id": "enterprise",
+    "title": "Where customers could pay",
+    "chapter": "bet"
+  },
+  {
+    "slide": 15,
+    "id": "roadmap",
+    "title": "How we get there",
+    "chapter": "bet"
+  },
+  {
+    "slide": 16,
+    "id": "crowd-supply",
+    "title": "First, let’s get more kits out there",
+    "chapter": "bet"
+  },
+  {
+    "slide": 17,
+    "id": "kit",
+    "title": "Let’s turn the kit into a recording.",
+    "chapter": "build"
+  },
+  {
+    "slide": 18,
+    "id": "hardware-connect",
+    "title": "Main board, debug board, USB",
+    "chapter": "build"
+  },
+  {
+    "slide": 19,
+    "id": "hardware-ppg",
+    "title": "Fit the sensors before powering up.",
+    "chapter": "build"
+  },
+  {
+    "slide": 20,
+    "id": "clients",
+    "title": "Four ways to get a signal.",
+    "chapter": "build"
+  },
+  {
+    "slide": 21,
+    "id": "android",
+    "title": "Android: scan, connect, share",
+    "chapter": "build"
+  },
+  {
+    "slide": 22,
+    "id": "python",
+    "title": "Python: record both raw signals.",
+    "chapter": "build"
+  },
+  {
+    "slide": 23,
+    "id": "browser",
+    "title": "Browser: app.sens-wear.com",
+    "chapter": "build"
+  },
+  {
+    "slide": 24,
+    "id": "record-signals",
+    "title": "Raw signals first. Estimates second.",
+    "chapter": "build"
+  },
+  {
+    "slide": 25,
+    "id": "troubleshooting",
+    "title": "Something not working?",
+    "chapter": "reference"
+  },
+  {
+    "slide": 26,
+    "id": "reference-clients",
+    "title": "Developer client support",
+    "chapter": "reference"
+  },
+  {
+    "slide": 27,
+    "id": "reference-data",
+    "title": "Know what each value means.",
+    "chapter": "reference"
+  },
+  {
+    "slide": 28,
+    "id": "reference-python",
+    "title": "Inside the Python recording loop",
+    "chapter": "reference"
+  },
+  {
+    "slide": 29,
+    "id": "reference-resources",
+    "title": "Keep building.",
+    "chapter": "reference"
+  }
+]

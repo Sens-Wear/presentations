@@ -1,0 +1,1 @@
+{"name":"senswear-thinkin-rocks-workshop","version":"1.0.0","private":true,"description":"Offline Reveal.js SensWear workshop","scripts":{"start":"node server.mjs"}}
